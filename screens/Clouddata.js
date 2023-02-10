@@ -1,7 +1,6 @@
 import { View, Text, FlatList,Image ,StyleSheet} from "react-native";
-import React, { useEffect } from "react";
-import Livedata from "../services/Livedata";
-import { useState } from "react";
+import  { useEffect,useState } from "react";
+
 var apikey = "c270c05084b88c6bc738112a864a3121";
 var url = "https://api.flickr.com/services/rest";
 const apiUrl =
@@ -15,16 +14,16 @@ export default function Clouddata() {
     try {
       let response = await fetch(apiUrl);
       let data = await response.json();
-      console.log(data.photos.photo);
+      
       setRen(data.photos.photo);
     } catch (error) {
-      console.log(error.message.data);
+      console.log(error);
     }
   };
 
   useEffect(() => {
     main();
-  }, [page]);
+  }, []);
 
   return (
     <View>
@@ -33,24 +32,24 @@ export default function Clouddata() {
         data={ren}
         renderItem={({item}) => {
           return (
-            <View >
-              
-               <Image style={styles.imgstyle} source={{uri:item.url_s}}/>
+            <View>
+              <Image resizeMode="cover" style={{height:'300px',width:'300px'}}  source={{uri:item.url_s}}/>
               <Text>{item.id}</Text>
-            </View>
-          );
+              </View>
+
+          )
         }}
       />
     </View>
   );
 }
-const styles=StyleSheet.create({
-  imgstyle:{
-    width:"200px",
-    height:'200px',
-    marginLeft:10
+// const styles=StyleSheet.create({
+//   imgstyle:{
+//     width:"200px",
+//     height:'200px',
+//     marginLeft:10
 
   
-  },
+//   },
  
-})
+// })

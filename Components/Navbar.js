@@ -17,20 +17,12 @@ export default function Navbar() {
 ]
   return (
    <View style={styles.navbar}>
-     {/* <View  style={styles.navbar}>
-          <Text style={{display:'flex'}}>
-            Home
-          </Text>
-          <Text style={{display:'flex'}}>
-            About
-          </Text>
-    
-   
-     </View> */}
-       <FlatList  horizontal  showsHorizontalScrollIndicator={false} style={styles.listStyle} data={datas} renderItem={(ele)=><Text style={styles.textStyle} key={ele.i
-        }>{ele.item.name}</Text>}>
+     
+       <FlatList horizontal  style={styles.listStyle} data={datas} renderItem={(ele)=><TouchableOpacity><Text style={styles.textStyle}  key={ele.item.name}>{ele.item.name}</Text></TouchableOpacity>}/>
 
-         </FlatList>
+        
+       
+       
 
    </View>
   )
@@ -39,12 +31,14 @@ const styles=StyleSheet.create({
     navbar:{
         width:'100%',
         border:'1px solid black',
-        height:'fit-content',
-        backgroundColor:'teal'
+     
+        backgroundColor:'teal',
+        marginTop:25
     },
+    
     textStyle:{
-        fontSize:20,
-        padding:20,
+        fontSize:30,
+        padding:15,
         // backgroundColor:'blue',
         textAlign:'center',
 
@@ -54,6 +48,9 @@ const styles=StyleSheet.create({
     },
     listStyle:{
         textAlign:'center',
+        padding:20,
+    
+        
        
     }
 
