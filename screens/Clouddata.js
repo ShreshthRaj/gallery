@@ -46,10 +46,9 @@ export default function Clouddata() {
 }
 const styles=StyleSheet.create({
   imgstyle:{
-    width:'40%',
-    height:undefined,
-    aspectRatio:1
-
+    width:"200px",
+    height:'200px',
+    marginLeft:10
 
   
   },
